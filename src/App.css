@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.conteiner-full {
+  display: flex;
+  flex-direction: row;
+  background-color: #141517;
+}
+
+.conteiner-products {
+  display:flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.item {
+  width: 200px;
+  background-color: black;
+  color: white;
+  margin: 10px;
+}
+
+.item img {
+  width: 150px;
+}
+

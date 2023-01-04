@@ -1,18 +1,20 @@
 import React from 'react';
 import Header from '../components/Header';
 import Drinks from '../data/drinks'
-import './pizza.css';
+import './drink.css';
+import '../App.css';
 
 class Drink extends React.Component {
   render () {
     return (
-    <div>
+    <div className='conteiner-full'>
       <Header />
+      <div>
       <p>Bebidas</p>
-      <section className='conteiner-Drinkss'>
+      <section className='conteiner-products'>
         {
           Drinks.map((drink) => (
-            <div className='drink'>
+            <div className='item'>
               <p>{drink.name}</p>
               <img src={drink.image} alt="imagemSand" />
               <p>{`R$ ${drink.preço},00`}</p>
@@ -21,6 +23,7 @@ class Drink extends React.Component {
           ))
       }
       </section>
+      </div>
       </div>
     )
   }

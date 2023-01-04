@@ -1,18 +1,19 @@
 import React from 'react';
 import Header from '../components/Header';
 import Sandwiches from '../data/sandwiches.js'
-import './sandwiches.css';
+import '../App.css';
 
 class Hamburguer extends React.Component {
   render () {
     return (
-    <div>
+    <div className='conteiner-full'>
       <Header />
+      <div>
       <p>Hambúrgueres</p>
-      <section className='conteiner-burguers'>
+      <section className='conteiner-products'>
         {
           Sandwiches.map((sandwich) => (
-            <div className='sandwich'>
+            <div className='item'>
               <p>{sandwich.name}</p>
               <img src={sandwich.image} alt="imagemSand" />
               <p>{`Ingredientes: ${sandwich.ingredients}`}</p>
@@ -22,6 +23,7 @@ class Hamburguer extends React.Component {
           ))
       }
       </section>
+      </div>
       </div>
     )
   }

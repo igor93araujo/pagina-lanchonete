@@ -1,0 +1,21 @@
+ nav{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  height: 100%;
+  justify-content: center;
+  gap: 5%;
+  align-items: center;
+}
+
+Link {
+  text-decoration: none;
+}
+
+nav p{
+  color: white;
+}
+
+header {
+  background-color: #d01f31;
+}

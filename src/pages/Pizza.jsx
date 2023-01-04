@@ -2,17 +2,19 @@ import React from 'react';
 import Header from '../components/Header';
 import Pizzas from '../data/pizzas'
 import './pizza.css';
+import '../App.css';
 
 class Pizza extends React.Component {
   render () {
     return (
-    <div>
+    <div className='conteiner-full'>
       <Header />
+      <div>
       <p>Pizzas</p>
-      <section className='conteiner-pizzas'>
+      <section className='conteiner-products'>
         {
           Pizzas.map((pizza) => (
-            <div className='pizza'>
+            <div className='item'>
               <p>{pizza.name}</p>
               <img src={pizza.image} alt="imagemSand" />
               <p>{`Ingredientes: ${pizza.ingredients}`}</p>
@@ -22,6 +24,7 @@ class Pizza extends React.Component {
           ))
       }
       </section>
+      </div>
       </div>
     )
   }
