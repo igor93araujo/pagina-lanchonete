@@ -17,6 +17,16 @@ class Login extends React.Component {
     });
   };
 
+  handleClick = () => {
+    const { history } = this.props;
+    this.setState(
+      { loading: true },
+      async () => {
+        return history.push('/hamburguer');
+      },
+    );
+  };
+
   render() {
     const {
       isButtonDisabled,
@@ -26,7 +36,7 @@ class Login extends React.Component {
 
     if (loading) return <LoadingMessage />;
     return (
-      <div data-testid="page-login" className="appLogin">
+      <div className="appLogin">
         <section className="content">
           <p>
             Lanchonete
