@@ -9,7 +9,7 @@ class Pizza extends React.Component {
     return (
     <div className='conteiner-full'>
       <Header />
-      <div>
+      <div className='conteiner-header-products'>
       <p>Pizzas</p>
       <section className='conteiner-products'>
         {
@@ -19,7 +19,7 @@ class Pizza extends React.Component {
               <img src={pizza.image} alt="imagemSand" />
               <p>{`Ingredientes: ${pizza.ingredients}`}</p>
               <p>{`R$ ${pizza.preço},00`}</p>
-              <p>+</p>
+              <button>Adicionar ao carrinho</button>
             </div>
           ))
       }

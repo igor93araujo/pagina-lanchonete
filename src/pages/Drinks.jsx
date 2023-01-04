@@ -9,7 +9,7 @@ class Drink extends React.Component {
     return (
     <div className='conteiner-full'>
       <Header />
-      <div>
+      <div className='conteiner-header-products'>
       <p>Bebidas</p>
       <section className='conteiner-products'>
         {
@@ -18,7 +18,7 @@ class Drink extends React.Component {
               <p>{drink.name}</p>
               <img src={drink.image} alt="imagemSand" />
               <p>{`R$ ${drink.preço},00`}</p>
-              <p>+</p>
+              <button>Adicionar ao carrinho</button>
             </div>
           ))
       }

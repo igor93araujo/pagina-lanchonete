@@ -8,7 +8,7 @@ class Hamburguer extends React.Component {
     return (
     <div className='conteiner-full'>
       <Header />
-      <div>
+      <div className='conteiner-header-products'>
       <p>Hambúrgueres</p>
       <section className='conteiner-products'>
         {
@@ -18,7 +18,7 @@ class Hamburguer extends React.Component {
               <img src={sandwich.image} alt="imagemSand" />
               <p>{`Ingredientes: ${sandwich.ingredients}`}</p>
               <p>{`R$ ${sandwich.preço},00`}</p>
-              <p>+</p>
+              <button>Adicionar ao carrinho</button>
             </div>
           ))
       }
