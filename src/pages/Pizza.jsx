@@ -9,7 +9,7 @@ class Pizza extends React.Component {
     product: ''
   }
 
-  handleclick= ({target}) =>{
+  handleChange= ({target}) =>{
     this.setState({
      product: target.value
     })
@@ -26,13 +26,15 @@ class Pizza extends React.Component {
         value={product}
         id='product'
         name='product'
-        onChange={this.handleclick}
+        onChange={this.handleChange}
         placeholder="Filtre um sabor"
         />
       <p>Pizzas</p>
       <section className='conteiner-products'>
         {
-          Pizzas.filter((pedido)=> pedido.name.toLowerCase().includes(product.toLowerCase())).map((pizza) => (
+          Pizzas
+          .filter((item)=> item.name.toLowerCase().includes(product.toLowerCase()))
+          .map((pizza) => (
             <div className='item'>
               <p>{pizza.name}</p>
               <img src={pizza.image} alt="imagemSand" />
