@@ -5,15 +5,34 @@ import './pizza.css';
 import '../App.css';
 
 class Pizza extends React.Component {
+  state = {
+    product: ''
+  }
+
+  handleclick= ({target}) =>{
+    this.setState({
+     product: target.value
+    })
+   }
+
   render () {
+    const { product } = this.state
     return (
     <div className='conteiner-full'>
       <Header />
       <div className='conteiner-header-products'>
+      <input
+        type="text"
+        value={product}
+        id='product'
+        name='product'
+        onChange={this.handleclick}
+        placeholder="Filtre um sabor"
+        />
       <p>Pizzas</p>
       <section className='conteiner-products'>
         {
-          Pizzas.map((pizza) => (
+          Pizzas.filter((pedido)=> pedido.name.toLowerCase().includes(product.toLowerCase())).map((pizza) => (
             <div className='item'>
               <p>{pizza.name}</p>
               <img src={pizza.image} alt="imagemSand" />
