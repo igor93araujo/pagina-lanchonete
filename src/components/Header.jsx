@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import './header.css'
 
 export default class Header extends Component {
+
+
   render() {
     return (
       <header>
@@ -21,6 +23,12 @@ export default class Header extends Component {
             to='/drink'
           >
             <p>Bebidas</p>
+          </Link>
+          <Link
+            to='/carrinho'
+          >
+            <p>Carrinho <spam>{this.props.cartCounter}</spam></p>
+            <p>Valor total: {`R$ ${ this.props.cartTotal }, 00`}</p>
           </Link>
         </nav>
       </header>

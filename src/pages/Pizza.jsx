@@ -5,28 +5,18 @@ import './pizza.css';
 import '../App.css';
 
 class Pizza extends React.Component {
-  state = {
-    product: ''
-  }
-
-  handleChange= ({target}) =>{
-    this.setState({
-     product: target.value
-    })
-   }
-
   render () {
-    const { product } = this.state
+    const { product, cartCounter, cartTotal, handleChange, addToCart } = this.props
     return (
     <div className='conteiner-full'>
-      <Header />
+      <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
       <div className='conteiner-header-products'>
       <input
         type="text"
         value={product}
         id='product'
         name='product'
-        onChange={this.handleChange}
+        onChange={handleChange}
         placeholder="Filtre um sabor"
         />
       <p>Pizzas</p>
@@ -39,8 +29,13 @@ class Pizza extends React.Component {
               <p>{pizza.name}</p>
               <img src={pizza.image} alt="imagemSand" />
               <p>{`Ingredientes: ${pizza.ingredients}`}</p>
-              <p>{`R$ ${pizza.preço},00`}</p>
-              <button>Adicionar ao carrinho</button>
+              <span>R$</span>
+              <span>{pizza.preço}</span>
+              <span>,00</span>
+              <button
+                type='button'
+                onClick={addToCart}
+              >Adicionar ao carrinho</button>
             </div>
           ))
       }

@@ -4,28 +4,41 @@ import Sandwiches from '../data/sandwiches.js'
 import '../App.css';
 
 class Hamburguer extends React.Component {
-  state = {
-    product: ''
+/*   state = {
+    product: '',
+    cartCounter: 0,
+    cartTotal: 0,
   }
 
   handleChange= ({target}) =>{
     this.setState({
-     product: target.value
+     product: target.value,
     })
    }
 
+   addToCart=({target})=> {
+    const {cartCounter, cartTotal} = this.state;
+
+    const itemPrice = target.parentNode.children[4].innerText;
+
+    this.setState ({
+      cartCounter: cartCounter + 1,
+      cartTotal: cartTotal + Number(itemPrice )
+    })
+   } */
+
   render () {
-    const { product } = this.state
+    const { product, cartCounter, cartTotal, handleChange, addToCart } = this.props
     return (
-    <div className='conteiner-full'>
-      <Header />
+      <div className='conteiner-full'>
+      <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
       <div className='conteiner-header-products'>
       <input
         type="text"
         value={product}
         id='product'
         name='product'
-        onChange={this.handleChange}
+        onChange={handleChange}
         placeholder="Filtre um sabor"
         />
       <p>Hambúrgueres</p>
@@ -38,8 +51,13 @@ class Hamburguer extends React.Component {
               <p>{sandwich.name}</p>
               <img src={sandwich.image} alt="imagemSand" />
               <p>{`Ingredientes: ${sandwich.ingredients}`}</p>
-              <p>{`R$ ${sandwich.preço},00`}</p>
-              <button>Adicionar ao carrinho</button>
+              <span>R$</span>
+              <span>{sandwich.preço}</span>
+              <span>,00</span>
+              <button
+                type='button'
+                onClick={addToCart}
+              >Adicionar ao carrinho</button>
             </div>
           ))
       }
