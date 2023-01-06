@@ -38,8 +38,10 @@ class Content extends React.Component {
 
     const itemPrice = target.parentNode.children[4].innerText;
 
-    this.setState ({
-      cartCounter: cartCounter + 1,
+    cartCounter <= 0 
+    ? this.setState({cartCounter:0}) 
+    : this.setState ({
+      cartCounter: cartCounter - 1,
       cartTotal: cartTotal - Number(itemPrice )
     })
    }
