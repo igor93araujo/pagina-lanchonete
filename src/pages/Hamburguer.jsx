@@ -4,29 +4,6 @@ import Sandwiches from '../data/sandwiches.js'
 import '../App.css';
 
 class Hamburguer extends React.Component {
-/*   state = {
-    product: '',
-    cartCounter: 0,
-    cartTotal: 0,
-  }
-
-  handleChange= ({target}) =>{
-    this.setState({
-    g product: target.value,
-    })
-   }
-
-   addToCart=({target})=> {
-    const {cartCounter, cartTotal} = this.state;
-
-    const itemPrice = target.parentNode.children[4].innerText;
-
-    this.setState ({
-      cartCounter: cartCounter + 1,
-      cartTotal: cartTotal + Number(itemPrice )
-    })
-   } */
-
   render () {
     const { product, cartCounter, cartTotal, handleChange, addToCart, removeToCart } = this.props
     return (

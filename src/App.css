@@ -48,3 +48,6 @@ button {
   cursor: pointer;
 }
 
+.noItems {
+  color: wheat;
+}
