@@ -16,7 +16,7 @@ class Carrinho extends React.Component {
         cartItem.filter((item,index) => (index>=1)).map((item) => (
           <div className='item'>
               <p>{item.name}</p>
-              <img src={item.img} alt="imagemSand" />
+              <img src={item.img} alt="itemImage" />
               if (item.ingredientes === undefined) {
                 <p>Geladinho!</p>
               } else {
