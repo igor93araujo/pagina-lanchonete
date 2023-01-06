@@ -17,10 +17,11 @@ class Carrinho extends React.Component {
           <div className='item'>
               <p>{item.name}</p>
               <img src={item.img} alt="imagemSand" />
-             ( if (item.ingredientes === undefined) {
+              if (item.ingredientes === undefined) {
                 <p>Geladinho!</p>
-              } :
-              <p>{`Ingredientes: ${item.ingredients}`}</p>)
+              } else {
+              <p>{`Ingredientes: ${item.ingredients}`}</p>
+              }
               <span>R$</span>
               <span>{item.price}</span>
               <span>,00</span>
