@@ -13,6 +13,7 @@ class Content extends React.Component {
     product: '',
     cartCounter: 0,
     cartTotal: 0,
+    productName: [],
   }
 
   handleChange= ({target}) =>{
@@ -21,14 +22,26 @@ class Content extends React.Component {
     })
    }
 
-   addToCart=({target})=> {
-    const {cartCounter, cartTotal} = this.state;
+  //  addToCart=({target})=> {
+  //   const {cartCounter, cartTotal} = this.state;
 
-    const itemPrice = target.parentNode.children[4].innerText;
+  //   const itemPrice = target.parentNode.children[4].innerText;
 
+  //   this.setState ({
+  //     cartCounter: cartCounter + 1,
+  //     cartTotal: cartTotal + Number(itemPrice )
+  //   })
+  //  }
+
+
+  addToCart = (preco, nome) => {
+    const {cartCounter, cartTotal, productName} = this.state;
+
+     console.log(preco)
     this.setState ({
       cartCounter: cartCounter + 1,
-      cartTotal: cartTotal + Number(itemPrice )
+      cartTotal: cartTotal + Number(preco ),
+      productName: [...productName, nome],
     })
    }
 
@@ -60,6 +73,8 @@ class Content extends React.Component {
           product={this.state.product}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}
+          productName={this.state.productName}
+
           />}  />
           <Route exact path="/pizza" 
           render={(props)=><Pizza {...props}

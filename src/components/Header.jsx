@@ -6,6 +6,7 @@ export default class Header extends Component {
 
 
   render() {
+    const { cartCounter, cartTotal} = this.props;
     return (
       <header>
         <nav>
@@ -27,8 +28,8 @@ export default class Header extends Component {
           <Link
             to='/carrinho'
           >
-            <p>Carrinho <spam>{this.props.cartCounter}</spam></p>
-            <p>Valor total: {`R$ ${ this.props.cartTotal }, 00`}</p>
+            <p>Carrinho <spam>{cartCounter}</spam></p>
+            <p>Valor total: {`R$ ${ cartTotal }, 00`}</p>
           </Link>
         </nav>
       </header>

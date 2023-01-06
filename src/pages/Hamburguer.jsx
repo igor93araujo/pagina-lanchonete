@@ -46,17 +46,17 @@ class Hamburguer extends React.Component {
         {
           Sandwiches
           .filter((item)=> item.name.toLowerCase().includes(product.toLowerCase()))
-          .map((sandwich) => (
+          .map(({name, image, preço, ingredients}) => (
             <div className='item'>
-              <p>{sandwich.name}</p>
-              <img src={sandwich.image} alt="imagemSand" />
-              <p>{`Ingredientes: ${sandwich.ingredients}`}</p>
+              <p>{name}</p>
+              <img src={image} alt="imagemSand" />
+              <p>{`Ingredientes: ${ingredients}`}</p>
               <span>R$</span>
-              <span>{sandwich.preço}</span>
+              <span>{preço}</span>
               <span>,00</span>
               <button
                 type='button'
-                onClick={addToCart}
+                onClick={() => addToCart(preço, name)}
               >Adicionar ao carrinho</button>
               <button
                 type='button'
