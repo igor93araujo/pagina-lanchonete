@@ -100,7 +100,7 @@ class Content extends React.Component {
     ? this.setState({cartCounter:0}) 
     : this.setState ({
       cartCounter: cartCounter - 1,
-      cartTotal: cartTotal - Number(itemPrice ),
+      cartTotal: cartTotal - Number(itemPrice),
     })
    }
   
