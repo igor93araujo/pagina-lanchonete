@@ -31,6 +31,19 @@ class Content extends React.Component {
       cartTotal: cartTotal + Number(itemPrice )
     })
    }
+
+
+   removeToCart=({target})=> {
+    const {cartCounter, cartTotal} = this.state;
+
+    const itemPrice = target.parentNode.children[4].innerText;
+
+    this.setState ({
+      cartCounter: cartCounter + 1,
+      cartTotal: cartTotal - Number(itemPrice )
+    })
+   }
+  
   render() {
     return (
       <main>
@@ -41,6 +54,7 @@ class Content extends React.Component {
           render={(props)=><Hamburguer {...props}
           handleChange={this.handleChange}
           addToCart={this.addToCart}
+          removeToCart={this.removeToCart}
           product={this.state.product}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}
@@ -49,6 +63,7 @@ class Content extends React.Component {
           render={(props)=><Pizza {...props}
           handleChange={this.handleChange}
           addToCart={this.addToCart}
+          removeToCart={this.removeToCart}
           product={this.state.product}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}
@@ -57,6 +72,7 @@ class Content extends React.Component {
           render={(props)=><Drink {...props}
           handleChange={this.handleChange}
           addToCart={this.addToCart}
+          removeToCart={this.removeToCart}
           product={this.state.product}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}

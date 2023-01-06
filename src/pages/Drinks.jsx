@@ -6,7 +6,7 @@ import '../App.css';
 
 class Drink extends React.Component {
   render () {
-    const { product, cartCounter, cartTotal, handleChange, addToCart } = this.props
+    const { product, cartCounter, cartTotal, handleChange, addToCart, removeToCart } = this.props
     return (
     <div className='conteiner-full'>
       <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
@@ -34,6 +34,10 @@ class Drink extends React.Component {
                 type='button'
                 onClick={addToCart}
               >Adicionar ao carrinho</button>
+               <button
+                type='button'
+                onClick={removeToCart}
+              >Remover do carrinho</button>
             </div>
           ))
       }
