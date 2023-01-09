@@ -36,7 +36,7 @@ class Drink extends React.Component {
               >Adicionar ao carrinho</button>
                <button
                 type='button'
-                onClick={removeToCart}
+                onClick={()=>removeToCart(drink)}
               >Remover do carrinho</button>
             </div>
           ))

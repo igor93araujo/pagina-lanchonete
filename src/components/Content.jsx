@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from '../pages/NotFound.jsx';
 import Login from '../pages/Login.jsx';
@@ -10,6 +10,7 @@ import Sandwiches from '../data/sandwiches';
 import Pizzas from '../data/pizzas.js';
 import '../App.css'
 import Drinks from '../data/drinks.js';
+import { setItem, getItem } from '../services/LocalStorageFunctions.jsx';
 
 
 class Content extends React.Component {
@@ -23,6 +24,7 @@ class Content extends React.Component {
       img:'',
       ingredients: '',
     }],
+    compras:[],
   }
 
   handleChange= ({target}) =>{
@@ -30,6 +32,7 @@ class Content extends React.Component {
      product: target.value,
     })
    }
+
 
    addToCart=({target})=> {
     const {cartCounter, cartTotal, cartItem} = this.state;
@@ -48,7 +51,7 @@ class Content extends React.Component {
           ingredients: getItemIngredientes,
           price: itemPrice,
         }]
-      })
+      }, setItem('compras', cartItem))
     ))
 
     Pizzas.map((pizza)=> (
@@ -80,27 +83,32 @@ class Content extends React.Component {
     })  
   }
   
-   removeToCart=({target})=> {
-    const {cartCounter, cartTotal} = this.state;
-    const itemPrice = target.parentNode.children[4].innerText;
+   removeToCart=(sandwich)=> {
+    const { cartItem, cartCounter, cartTotal} = this.state;
 
-    cartCounter <= 0 
+    const firstItem = cartItem.find((e)=>e.name===sandwich.name)
+    const arrFilter= cartItem.filter((e)=> e !== firstItem);
+    
+    setItem('compras',arrFilter)
+    cartCounter <= 0 // arrumar a subtração do contador
     ? this.setState({cartCounter:0}) 
     : this.setState ({
+      cartItem: arrFilter,
       cartCounter: cartCounter - 1,
-      cartTotal: cartTotal - Number(itemPrice ),
+      cartTotal: cartTotal - Number(sandwich.preço),
     })
    }
 
-   removeFromCartList=({target})=>{
-    const {cartCounter, cartTotal} = this.state;
-    const itemPrice = target.parentNode.children[4].innerText;
-    target.parentNode.remove();
-    cartCounter <= 0 
-    ? this.setState({cartCounter:0}) 
-    : this.setState ({
-      cartCounter: cartCounter - 1,
-      cartTotal: cartTotal - Number(itemPrice),
+   removeFromCartList=(obj)=>{
+    const {cartItem, cartTotal} = this.state;
+    const firstItem = cartItem.find((e)=>e.name===obj.name)
+    const arrFilter= cartItem.filter((e)=> e !== firstItem);
+    setItem('compras',arrFilter)
+
+    this.setState({
+      cartItem: arrFilter,
+      cartCounter: arrFilter.length-1,
+      cartTotal: cartTotal - Number(obj.price)
     })
    }
   

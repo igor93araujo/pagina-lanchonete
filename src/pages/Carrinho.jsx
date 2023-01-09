@@ -23,7 +23,7 @@ class Carrinho extends React.Component {
               <span>,00</span>
               <button
                 type='button'
-                onClick={removeFromCartList}
+                onClick={()=>removeFromCartList(item)}
               >Remover do carrinho</button>
             </div>
         ))

@@ -38,7 +38,7 @@ class Pizza extends React.Component {
               >Adicionar ao carrinho</button>
                <button
                 type='button'
-                onClick={removeToCart}
+                onClick={()=>removeToCart(pizza)}
               >Remover do carrinho</button>
             </div>
           ))
