@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from '../pages/NotFound.jsx';
 import Login from '../pages/Login.jsx';
@@ -19,13 +19,18 @@ class Content extends React.Component {
     cartCounter: 0,
     cartTotal: 0,
     itemPrice: 0,
-    cartItem: [{
-      name: '',
-      img:'',
-      ingredients: '',
-    }],
+    cartItem:[],
     compras:[],
   }
+
+/*   componentDidMount(){
+    const itens = getItem('compras');
+     this.setState({
+      compras:itens,
+      cartCounter: getItem('compras').length,
+      cartTotal:getItem('compras').reduce((acc,curr)=>acc +curr.price, 0)
+    })
+  } */
 
   handleChange= ({target}) =>{
     this.setState({
@@ -33,84 +38,91 @@ class Content extends React.Component {
     })
    }
 
-
-   addToCart=({target})=> {
-    const {cartCounter, cartTotal, cartItem} = this.state;
-
-    const itemPrice = target.parentNode.children[4].innerText;
-    const getItemName = target.parentNode.children[0].innerText;
-    const getItemImg = target.parentNode.children[1].src;
-    const getItemIngredientes = target.parentNode.children[2].innerText;
+   addToCart = (preco, nome, img, ingredientes)=> {
+    const {cartItem} = this.state;
+    
+    const obj =  {
+      name: nome,
+      img: img,
+      ingredients: ingredientes,
+      price: preco,
+    }
 
     Sandwiches.map((sandwich)=> (
-      sandwich.name === getItemName &&
+      sandwich.name === nome &&
       this.setState({
         cartItem: [...cartItem, {
-          name: getItemName,
-          img: getItemImg,
-          ingredients: getItemIngredientes,
-          price: itemPrice,
+          name: nome,
+          img: img,
+          ingredients: ingredientes,
+          price: preco,
         }]
-      }, setItem('compras', cartItem))
+      },  setItem('compras', [...cartItem,obj]))
     ))
 
     Pizzas.map((pizza)=> (
-      pizza.name === getItemName &&
+      pizza.name === nome &&
       this.setState({
         cartItem: [...cartItem, {
-          name: getItemName,
-          img: getItemImg,
-          ingredients: getItemIngredientes,
-          price: itemPrice,
+          name: nome,
+          img: img,
+          ingredients: ingredientes,
+          price: preco,
         }]
-      })
+      },  setItem('compras', [...cartItem,obj]))
     ))
 
     Drinks.map((drink)=> (
-      drink.name === getItemName &&
+      drink.name === nome &&
       this.setState({
         cartItem: [...cartItem, {
-          name: getItemName,
-          img: getItemImg,
-          price: itemPrice,
+          name: nome,
+          img: img,
+          price: preco,
         }]
-      })
+      },  setItem('compras', [...cartItem,obj]))
     ))
-        
+  
     this.setState ({
-      cartCounter: cartCounter + 1,
-      cartTotal: cartTotal + Number(itemPrice ),
+      compras: getItem('compras'),
+      cartCounter: getItem('compras').length,
+      cartTotal: getItem('compras').reduce((acc, curr) => acc + curr.price, 0),
     })  
   }
-  
-   removeToCart=(sandwich)=> {
-    const { cartItem, cartCounter, cartTotal} = this.state;
-
-    const firstItem = cartItem.find((e)=>e.name===sandwich.name)
-    const arrFilter= cartItem.filter((e)=> e !== firstItem);
-    
-    setItem('compras',arrFilter)
-    cartCounter <= 0 // arrumar a subtração do contador
-    ? this.setState({cartCounter:0}) 
-    : this.setState ({
-      cartItem: arrFilter,
-      cartCounter: cartCounter - 1,
-      cartTotal: cartTotal - Number(sandwich.preço),
+   removeToCart=(obj)=> {
+    const {cartItem} = this.state
+    const primeProduct = cartItem.find((e) => e.name === obj.name )
+    const filter = cartItem.filter((e)=> e !== primeProduct)
+    setItem('compras',filter)
+    this.setState({
+      cartItem: filter,
+      cartCounter:filter.length,
+      compras: getItem('compras'),
+      cartTotal: getItem('compras').reduce((acc, curr) => acc + curr.price, 0)
     })
    }
 
    removeFromCartList=(obj)=>{
-    const {cartItem, cartTotal} = this.state;
-    const firstItem = cartItem.find((e)=>e.name===obj.name)
-    const arrFilter= cartItem.filter((e)=> e !== firstItem);
-    setItem('compras',arrFilter)
-
+    const {cartItem} = this.state
+    const primeProduct = cartItem.find((e) => e.name === obj.name )
+    const filter = cartItem.filter((e)=> e !== primeProduct)
+    setItem('compras',filter)
     this.setState({
-      cartItem: arrFilter,
-      cartCounter: arrFilter.length-1,
-      cartTotal: cartTotal - Number(obj.price)
+      cartItem: filter,
+      cartCounter:filter.length,
+      compras: getItem('compras'),
+      cartTotal: getItem('compras').reduce((acc, curr) => acc + curr.price, 0)
     })
    }
+
+   removeAll = () => {
+    localStorage.clear();
+    this.setState({
+      compras:[],
+      cartCounter:0,
+      cartTotal:0,
+    })
+  }
   
   render() {
     return (
@@ -146,11 +158,12 @@ class Content extends React.Component {
           />} />
           <Route exact path="/carrinho"
           render={(props)=><Carrinho {...props}
-          addToCart={this.addToCart}
+          
           removeFromCartList={this.removeFromCartList}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}
-          cartItem={this.state.cartItem}
+          compras={this.state.compras}
+          removeAll={this.removeAll}
           />} />
           <Route path="*" component={ NotFound } />
         </Switch>

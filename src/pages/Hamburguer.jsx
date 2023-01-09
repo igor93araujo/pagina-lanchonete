@@ -23,21 +23,21 @@ class Hamburguer extends React.Component {
         {
           Sandwiches
           .filter((item)=> item.name.toLowerCase().includes(product.toLowerCase()))
-          .map((sandwich) => (
-            <div className='item'>
-              <p>{sandwich.name}</p>
-              <img src={sandwich.image} alt="imagemSand" />
-              <p>{`Ingredientes: ${sandwich.ingredients}`}</p>
+          .map((obj) => (
+            <div className='item' key={obj.name}>
+              <p>{obj.name}</p>
+              <img src={obj.image} alt="imagemSand" />
+              <p>{`Ingredientes: ${obj.ingredients}`}</p>
               <span>R$</span>
-              <span>{sandwich.preço}</span>
+              <span>{obj.preço}</span>
               <span>,00</span>
               <button
                 type='button'
-                onClick={addToCart}
+                onClick={()=>addToCart(obj.preço, obj.name, obj.image, obj.ingredients)}
               >Adicionar ao carrinho</button>
               <button
                 type='button'
-                onClick={()=>removeToCart(sandwich)}
+                onClick={()=>removeToCart(obj)}
               >Remover do carrinho</button>
               
             </div>

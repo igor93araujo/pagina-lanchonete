@@ -27,7 +27,7 @@ export default class Header extends Component {
           <Link
             to='/carrinho'
           >
-            <p>Carrinho <spam>{`R$ ${this.props.cartCounter},00`}</spam></p>
+            <p>Carrinho: <spam>{`${this.props.cartCounter} ite${this.props.cartCounter!== 1 ? 'ns' : 'm'}`}</spam></p>
             <p>Valor total: {`R$ ${ this.props.cartTotal },00`}</p>
           </Link>
         </nav>

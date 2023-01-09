@@ -24,22 +24,23 @@ class Pizza extends React.Component {
         {
           Pizzas
           .filter((item)=> item.name.toLowerCase().includes(product.toLowerCase()))
-          .map((pizza) => (
-            <div className='item'>
-              <p>{pizza.name}</p>
-              <img src={pizza.image} alt="imagemSand" />
-              <p>{`Ingredientes: ${pizza.ingredients}`}</p>
+          .map((obj) => (
+            <div className='item' key={obj.name}>
+              <p>{obj.name}</p>
+              <img src={obj.image} alt="imagemSand" />
+              <p>{`Ingredientes: ${obj.ingredients}`}</p>
               <span>R$</span>
-              <span>{pizza.preço}</span>
+              <span>{obj.preço}</span>
               <span>,00</span>
               <button
                 type='button'
-                onClick={addToCart}
+                onClick={()=>addToCart(obj.preço, obj.name, obj.image, obj.ingredients)}
               >Adicionar ao carrinho</button>
-               <button
+              <button
                 type='button'
-                onClick={()=>removeToCart(pizza)}
+                onClick={()=>removeToCart(obj)}
               >Remover do carrinho</button>
+              
             </div>
           ))
       }

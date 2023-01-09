@@ -21,23 +21,25 @@ class Drink extends React.Component {
         />
       <p>Bebidas</p>
       <section className='conteiner-products'>
-        {
-          Drinks.map((drink) => (
-            <div className='item'>
-              <p>{drink.name}</p>
-              <img src={drink.image} alt="imagemSand" />
-              <p/>
+      {
+          Drinks
+          .filter((item)=> item.name.toLowerCase().includes(product.toLowerCase()))
+          .map((obj) => (
+            <div className='item' key={obj.name}>
+              <p>{obj.name}</p>
+              <img src={obj.image} alt="imagemSand" />
               <span>R$</span>
-              <span>{drink.preço}</span>
+              <span>{obj.preço}</span>
               <span>,00</span>
               <button
                 type='button'
-                onClick={addToCart}
+                onClick={()=>addToCart(obj.preço, obj.name, obj.image, obj.ingredients)}
               >Adicionar ao carrinho</button>
-               <button
+              <button
                 type='button'
-                onClick={()=>removeToCart(drink)}
+                onClick={()=>removeToCart(obj)}
               >Remover do carrinho</button>
+              
             </div>
           ))
       }

@@ -4,31 +4,38 @@ import '../App.css';
 
 class Carrinho extends React.Component {
   render () {
-    const {cartCounter, cartTotal,cartItem, removeFromCartList} = this.props
+    const {cartCounter, cartTotal,compras, removeFromCartList,removeAll} = this.props;
     return (
       <div className='conteiner-full'>
       <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
       
-        {cartItem.length === 1 ? <p className='noItems'>Não há itens no carrinho.</p>
+        {compras.length === 0 ? <p className='noItems'>Não há itens no carrinho.</p>
       :
+      
       <div className='conteiner-products'>
       {
-        cartItem.filter((item,index) => (index>=1)).map((item) => (
+        compras.map((obj) => (
           <div className='item'>
-              <p>{item.name}</p>
-              <img src={item.img} alt="itemImage" />
-              <p>{`Ingredientes: ${item.ingredients}`}</p>
+              <p>{obj.name}</p>
+              <img src={obj.img} alt="objImage" />
+              <p>{`Ingredientes: ${obj.ingredients}`}</p>
               <span>R$</span>
-              <span>{item.price}</span>
+              <span>{obj.price}</span>
               <span>,00</span>
               <button
                 type='button'
-                onClick={()=>removeFromCartList(item)}
+                onClick={()=>removeFromCartList(obj)}
               >Remover do carrinho</button>
             </div>
         ))
       }
       </div>}
+      <button
+      type='button'
+      onClick={()=>removeAll()
+      }
+      className='button'
+      >Remover Tudo</button>
       </div>
     )
   }
