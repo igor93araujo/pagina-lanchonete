@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from '../pages/NotFound.jsx';
-import Login from '../pages/Login.jsx';
 import Hamburguer from '../pages/Hamburguer.jsx';
 import Pizza from '../pages/Pizza.jsx';
 import Drink from '../pages/Drinks.jsx';
@@ -128,7 +127,15 @@ class Content extends React.Component {
     return (
       <main>
         <Switch>
-          <Route exact path="/" component={ Login } />
+          <Route exact path="/" 
+          render={(props)=><Hamburguer {...props}
+          handleChange={this.handleChange}
+          addToCart={this.addToCart}
+          removeToCart={this.removeToCart}
+          product={this.state.product}
+          cartCounter={this.state.cartCounter}
+          cartTotal={this.state.cartTotal}
+          />}/>
           <Route exact path="/hamburguer"
           render={(props)=><Hamburguer {...props}
           handleChange={this.handleChange}

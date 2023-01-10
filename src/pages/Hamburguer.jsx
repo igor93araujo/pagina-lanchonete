@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Sandwiches from '../data/sandwiches.js'
 import '../App.css';
+import { MdOutlineFastfood } from 'react-icons/md'
 
 class Hamburguer extends React.Component {
   render () {
@@ -10,6 +11,12 @@ class Hamburguer extends React.Component {
       <div className='conteiner-full'>
       <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
       <div className='conteiner-header-products'>
+      <div className='conteiner-filter'>
+      <div>
+      <MdOutlineFastfood className='logo'/>
+      <h1>Lanchonete Mata-Fome</h1>
+      </div>
+      <div className='conteiner--filter'>
       <input
         type="text"
         value={product}
@@ -19,6 +26,8 @@ class Hamburguer extends React.Component {
         placeholder="Filtre um sabor"
         />
       <p>Hambúrgueres</p>
+      </div>
+      </div>
       <section className='conteiner-products'>
         {
           Sandwiches
@@ -28,9 +37,7 @@ class Hamburguer extends React.Component {
               <p>{obj.name}</p>
               <img src={obj.image} alt="imagemSand" />
               <p>{`Ingredientes: ${obj.ingredients}`}</p>
-              <span>R$</span>
-              <span>{obj.preço}</span>
-              <span>,00</span>
+              <p>{`R$ ${obj.preço}, 00`}</p>
               <button
                 type='button'
                 onClick={()=>addToCart(obj.preço, obj.name, obj.image, obj.ingredients)}

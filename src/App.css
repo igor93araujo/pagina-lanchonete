@@ -8,28 +8,114 @@
   display: flex;
   flex-direction: row;
   background-color: #141517;
-  height: 100vh;
-  overflow-x: scroll;
 }
 
 .conteiner-products {
   display:flex;
   flex-wrap: wrap;
-  height: 100vh;
   justify-content: center;
+  width: 100%;
+  margin-top: 10rem;
+  margin-left: 10rem;
+  height: 100vh;
+}
+
+.noItems {
+  width: 550px;
+  font-size: xx-large;
+}
+.conteiner-cart {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  color: white;
+  margin-top: 5%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.clear-button {
+  width: 150px;
+  height: 50px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.conteiner-header-products {
+  display: flexbox;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+
+}
+
+.logo {
+  color: white;
+  height: 50px;
+  width: 100px;
+  margin-left: 0px;
+}
+
+.conteiner-filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  background-color: #0c0d0f;
+  width: 100%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  
+}
+
+.conteiner-filter h1 {
+  color: white;
+  margin-left: 2rem;
+}
+
+.conteiner--filter {
+ margin-left: 25%;
+}
+
+#product {
+  text-align: center;
+  width: 20rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10rem;
+  font-size: larger;
+}
+
+.conteiner-filter p, .cartTitle {
+  font-weight: 900;
+  border-bottom: 3px solid #d01f31;
+  font-size: xx-large;
+}
+
+.conteiner-header-products p {
+  color: white;
 }
 
 .item {
-  width: 300px;
-  height: 300px;
+  width: 17rem;
+  height: 25rem;
   background-color: #0c0d0f;
+  margin: 1%;
   color: white;
-  margin: 10px;
-  display: flex;
+  display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  gap: 7px;
+}
+
+.price {
+  margin-top: 2%;
 }
 
 .item img {
@@ -48,15 +134,25 @@ button {
   cursor: pointer;
 }
 
-.button {
-  border: none;
-  padding: 5px 10px;
-  background-color: #d01f31;
-  border-radius: 3%;
-  margin-top: 5%;
-  cursor: pointer;
-}
-
 .noItems {
   color: wheat;
+  margin-top: 20%;
+}
+
+footer {
+  background-color: #d01f31;
+  display: flex;
+  flex-direction: column;
+  color: wheat;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  width: 100;
+}
+
+.linkedInLogo {
+  color: white;
+  width: 30px;
+  height: 20px;
 }

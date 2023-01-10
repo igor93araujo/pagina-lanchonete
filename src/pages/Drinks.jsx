@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Drinks from '../data/drinks'
 import './drink.css';
 import '../App.css';
+import { MdOutlineFastfood } from 'react-icons/md'
 
 class Drink extends React.Component {
   render () {
@@ -11,6 +12,12 @@ class Drink extends React.Component {
     <div className='conteiner-full'>
       <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
       <div className='conteiner-header-products'>
+      <div className='conteiner-filter'>
+      <div>
+      <MdOutlineFastfood className='logo'/>
+      <h1>Lanchonete Mata-Fome</h1>
+      </div>
+      <div className='conteiner--filter'>
       <input
         type="text"
         value={product}
@@ -20,6 +27,8 @@ class Drink extends React.Component {
         placeholder="Filtre um sabor"
         />
       <p>Bebidas</p>
+      </div>
+      </div>
       <section className='conteiner-products'>
       {
           Drinks
@@ -28,9 +37,7 @@ class Drink extends React.Component {
             <div className='item' key={obj.name}>
               <p>{obj.name}</p>
               <img src={obj.image} alt="imagemSand" />
-              <span>R$</span>
-              <span>{obj.preço}</span>
-              <span>,00</span>
+              <p className='price'>{`R$ ${obj.preço}, 00`}</p>
               <button
                 type='button'
                 onClick={()=>addToCart(obj.preço, obj.name, obj.image, obj.ingredients)}

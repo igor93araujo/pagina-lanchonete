@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './header.css'
+import { GiFullPizza, GiBeerBottle } from 'react-icons/gi'
+import { FaHamburger } from 'react-icons/fa'
+import { TiShoppingCart } from 'react-icons/ti'
 
 export default class Header extends Component {
 
@@ -12,24 +15,26 @@ export default class Header extends Component {
           <Link 
             to='/hamburguer'
           >
-            <p>Hamburgueres</p>
+            <FaHamburger className='icon'/>
           </Link>
           <Link
             to='/pizza'
           >
-            <p>Pizzas</p>
+            <GiFullPizza className='icon'/>
           </Link>
           <Link
             to='/drink'
           >
-            <p>Bebidas</p>
+            <GiBeerBottle className='icon'/>
           </Link>
           <Link
             to='/carrinho'
+            className='carrinho'
           >
-            <p>Carrinho: <spam>{`${this.props.cartCounter} ite${this.props.cartCounter!== 1 ? 'ns' : 'm'}`}</spam></p>
-            <p>Valor total: {`R$ ${ this.props.cartTotal },00`}</p>
+            <TiShoppingCart className='icon'/>
           </Link>
+            <p> {`Quantidade: ${this.props.cartCounter} ite${this.props.cartCounter!== 1 ? 'ns' : 'm'}`}</p>
+            <p>Valor total: {`R$ ${ this.props.cartTotal },00`}</p>
         </nav>
       </header>
     )

@@ -1,3 +1,16 @@
+header {
+  background-color: #d01f31;
+  width: 10rem;
+  height: 100vh;
+  position: fixed;
+}
+
+.icon {
+  color: white;
+  height: 50px;
+  width: 100px;
+}
+
  nav{
   display: flex;
   flex-direction: column;
@@ -16,8 +29,3 @@ nav p{
   color: white;
 }
 
-header {
-  background-color: #d01f31;
-  width: 15%;
-  height: 100vh;
-}
