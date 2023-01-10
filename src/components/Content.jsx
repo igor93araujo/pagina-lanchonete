@@ -22,14 +22,14 @@ class Content extends React.Component {
     compras:[],
   }
 
-   componentDidMount(){
+ /*   componentDidMount(){
     const itens = getItem('compras');
      this.setState({
       compras:itens, //carrinho de compras
       cartCounter: getItem('compras').length, //contador de itens do carrinho
       cartTotal:getItem('compras').reduce((acc,curr)=>acc +curr.price, 0) //soma dos itens do carrinho
     })
-  }
+  } */
 
   handleChange= ({target}) =>{
     this.setState({

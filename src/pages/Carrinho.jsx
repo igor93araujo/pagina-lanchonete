@@ -32,7 +32,7 @@ class Carrinho extends React.Component {
       className='clear-button'
       >Remover tudo</button>
       }
-      <div className='conteiner-products'>
+      <div className='conteiner-cart-products'>
                 {compras.map((obj) => (
                   <div className='item'>
                     <p>{obj.name}</p>
