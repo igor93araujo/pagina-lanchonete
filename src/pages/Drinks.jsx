@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
 import Drinks from '../data/drinks'
-import './drink.css';
 import '../App.css';
 import { MdOutlineFastfood } from 'react-icons/md'
 
