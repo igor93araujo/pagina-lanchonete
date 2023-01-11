@@ -14,7 +14,7 @@ Consiste em uma aplicação web de um e-commerce utilizando um pequeno banco de 
 
 ## Instruções
 
-:small_blue_diamond: npm install // para instalar as dependências
+:small_blue_diamond: npm install // para instalar as dependências<br/>
 :small_blue_diamond: npm start // para iniciar a aplicação
 
 ## Demonstração
