@@ -90,19 +90,7 @@ class Content extends React.Component {
       cartTotal: getItem('compras').reduce((acc, curr) => acc + curr.price, 0),
     })  
   }
-/*    removeFromCartList=(obj)=> {
-    const {compras} = this.state
-    const primeProduct = compras.find((e) => e.name === obj.name )
-    const filter = compras.filter((e)=> e !== primeProduct)
-    setItem('compras',filter)
-    this.setState({
-      cartItem: filter,
-      cartCounter:filter.length,
-      compras: getItem('compras'),
-      cartTotal: getItem('compras').reduce((acc, curr) => acc + curr.price, 0)
-    })
-   } */
-
+  
    removeFromCartList=(obj)=>{
     const {compras} = this.state
     const primeProduct = compras.find((e) => e.name === obj.name )

@@ -12,7 +12,7 @@ class Hamburguer extends React.Component {
       <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
       <div className='conteiner-header-products'>
       <div className='conteiner-filter'>
-      <div>
+      <div className='conteiner-logo'>
       <MdOutlineFastfood className='logo'/>
       <h1>Lanchonete Mata-Fome</h1>
       </div>
