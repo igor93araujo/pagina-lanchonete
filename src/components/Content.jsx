@@ -95,7 +95,6 @@ class Content extends React.Component {
     const {compras} = this.state
     const primeProduct = compras.find((e) => e.name === obj.name )
     const filter = compras.filter((e)=> e !== primeProduct)
-    console.log(primeProduct);
     setItem('compras',filter)
     this.setState({
       cartItem: filter,
@@ -106,6 +105,7 @@ class Content extends React.Component {
    }
 
    removeAll = () => {
+    console.log('clicou');
     localStorage.clear();
     this.setState({
       compras:[],

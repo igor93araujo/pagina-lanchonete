@@ -27,8 +27,7 @@ class Carrinho extends React.Component {
         compras.length === 0 ? '' : 
       <button
       type='button'
-      onClick={()=>removeAll()
-      }
+      onClick={()=>removeAll()}
       className='clear-button'
       >Remover tudo</button>
       }
