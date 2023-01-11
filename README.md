@@ -1,8 +1,16 @@
-# Projeto página de lanchonete online :hamburger:
+# Projeto página de lanchonete online 🍔
 
 Consiste em uma aplicação web de um e-commerce utilizando um pequeno banco de dados criado por mim conteudo os itens do site. Nele há as funcionalidades de filtro de produto por nome; adição e remoção de produtos ao carrinho de compra e simulação da página de compra dos itens selecionados.
 
-:small_blue_diamond:Construída utilizado React, BrowserRouter e CSS3.
+💡HardSkills desenvolvidas:
+#HTML<br/>
+#CSS<br/>
+#Javascript<br/>
+#React<br/>
+#Rotas com React-router-dom<br/>
+#States<br/>
+#HOFs<br/>
+Utilização da biblioteca #reactIcons<br/>
 
 ## Instruções
 
