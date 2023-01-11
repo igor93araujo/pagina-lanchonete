@@ -11,5 +11,6 @@ Consiste em uma aplicação web de um e-commerce utilizando um pequeno banco de 
 
 ## Demonstração
 
-:computer: <a href:"https://lanchonete-mata-fome.vercel.app/">Clique aqui</a>
+:computer: [Flex Grid](https://lanchonete-mata-fome.vercel.app/)
+<a href:"https://lanchonete-mata-fome.vercel.app/">Clique aqui</a>
   ![](lanchonete-online.gif)
