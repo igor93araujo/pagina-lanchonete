@@ -12,7 +12,7 @@ class Carrinho extends React.Component {
       <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
       <div className='conteiner-filter'>
       <MdOutlineFastfood className='logo'/>
-      <h1>Lanchonete Mata-Fome</h1>
+      <h1>Lanchonete Mata-Fome</h1>🔹
       </div>
       <section className='conteiner-cart'>
         
