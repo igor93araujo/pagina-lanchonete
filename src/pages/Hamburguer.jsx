@@ -6,7 +6,7 @@ import { MdOutlineFastfood } from 'react-icons/md'
 
 class Hamburguer extends React.Component {
   render () {
-    const { product, cartCounter, cartTotal, handleChange, addToCart, removeToCart } = this.props
+    const { product, cartCounter, cartTotal, handleChange, addToCart, removeFromCartList } = this.props
     return (
       <div className='conteiner-full'>
       <Header cartCounter = {cartCounter} cartTotal = { cartTotal }/>
@@ -44,7 +44,7 @@ class Hamburguer extends React.Component {
               >Adicionar ao carrinho</button>
               <button
                 type='button'
-                onClick={()=>removeToCart(obj)}
+                onClick={()=>removeFromCartList(obj)}
               >Remover do carrinho</button>
               
             </div>

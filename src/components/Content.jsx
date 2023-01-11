@@ -22,14 +22,16 @@ class Content extends React.Component {
     compras:[],
   }
 
- /*   componentDidMount(){
-    const itens = getItem('compras');
-     this.setState({
-      compras:itens, //carrinho de compras
-      cartCounter: getItem('compras').length, //contador de itens do carrinho
-      cartTotal:getItem('compras').reduce((acc,curr)=>acc +curr.price, 0) //soma dos itens do carrinho
-    })
-  } */
+   componentDidMount(){
+    const itens = getItem('compras') || [];
+    if(itens.length > 0) {
+      this.setState({
+        compras:itens, //carrinho de compras
+        cartCounter: getItem('compras').length || 0, //contador de itens do carrinho
+        cartTotal:getItem('compras').reduce((acc,curr)=>acc +curr.price, 0) //soma dos itens do carrinho
+      })
+    }
+  }
 
   handleChange= ({target}) =>{
     this.setState({
@@ -88,10 +90,10 @@ class Content extends React.Component {
       cartTotal: getItem('compras').reduce((acc, curr) => acc + curr.price, 0),
     })  
   }
-   removeToCart=(obj)=> {
-    const {cartItem} = this.state
-    const primeProduct = cartItem.find((e) => e.name === obj.name )
-    const filter = cartItem.filter((e)=> e !== primeProduct)
+/*    removeFromCartList=(obj)=> {
+    const {compras} = this.state
+    const primeProduct = compras.find((e) => e.name === obj.name )
+    const filter = compras.filter((e)=> e !== primeProduct)
     setItem('compras',filter)
     this.setState({
       cartItem: filter,
@@ -99,12 +101,13 @@ class Content extends React.Component {
       compras: getItem('compras'),
       cartTotal: getItem('compras').reduce((acc, curr) => acc + curr.price, 0)
     })
-   }
+   } */
 
    removeFromCartList=(obj)=>{
-    const {cartItem} = this.state
-    const primeProduct = cartItem.find((e) => e.name === obj.name )
-    const filter = cartItem.filter((e)=> e !== primeProduct)
+    const {compras} = this.state
+    const primeProduct = compras.find((e) => e.name === obj.name )
+    const filter = compras.filter((e)=> e !== primeProduct)
+    console.log(primeProduct);
     setItem('compras',filter)
     this.setState({
       cartItem: filter,
@@ -131,7 +134,7 @@ class Content extends React.Component {
           render={(props)=><Hamburguer {...props}
           handleChange={this.handleChange}
           addToCart={this.addToCart}
-          removeToCart={this.removeToCart}
+          removeFromCartList={this.removeFromCartList}
           product={this.state.product}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}
@@ -140,7 +143,7 @@ class Content extends React.Component {
           render={(props)=><Hamburguer {...props}
           handleChange={this.handleChange}
           addToCart={this.addToCart}
-          removeToCart={this.removeToCart}
+          removeFromCartList={this.removeFromCartList}
           product={this.state.product}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}
@@ -149,7 +152,7 @@ class Content extends React.Component {
           render={(props)=><Pizza {...props}
           handleChange={this.handleChange}
           addToCart={this.addToCart}
-          removeToCart={this.removeToCart}
+          removeFromCartList={this.removeFromCartList}
           product={this.state.product}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}
@@ -158,14 +161,13 @@ class Content extends React.Component {
           render={(props)=><Drink {...props}
           handleChange={this.handleChange}
           addToCart={this.addToCart}
-          removeToCart={this.removeToCart}
+          removeFromCartList={this.removeFromCartList}
           product={this.state.product}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}
           />} />
           <Route exact path="/carrinho"
           render={(props)=><Carrinho {...props}
-          
           removeFromCartList={this.removeFromCartList}
           cartCounter={this.state.cartCounter}
           cartTotal={this.state.cartTotal}

@@ -33,11 +33,11 @@ class Carrinho extends React.Component {
       >Remover tudo</button>
       }
       <div className='conteiner-cart-products'>
-                {compras.map((obj) => (
-                  <div className='item'>
+                {compras.map((obj,index) => (
+                  <div className='item' key={`carrinho-${index}`}>
                     <p>{obj.name}</p>
                     <img src={obj.img} alt="objImage" />
-                    <p>{`Ingredientes: ${obj.ingredients}`}</p>
+                    <p>{obj.ingredients && `Ingredientes: ${obj.ingredients}`}</p>
                     <p>{`R$ ${obj.price}, 00`}</p>
                     <button
                       type='button'
