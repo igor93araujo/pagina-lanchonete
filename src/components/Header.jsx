@@ -33,8 +33,10 @@ export default class Header extends Component {
           >
             <TiShoppingCart className='icon'/>
           </Link>
+          <div className='resume'>
             <p> {`Quantidade: ${this.props.cartCounter} ite${this.props.cartCounter!== 1 ? 'ns' : 'm'}`}</p>
             <p>Valor total: {`R$ ${ this.props.cartTotal },00`}</p>
+          </div>
         </nav>
       </header>
     )

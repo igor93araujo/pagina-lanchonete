@@ -20,6 +20,15 @@ header {
   align-items: center;
 }
 
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  padding: 2%;
+  font-size: 12px;
+}
+
 Link {
   text-decoration: none;
 }
