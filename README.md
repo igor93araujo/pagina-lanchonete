@@ -21,5 +21,4 @@ Consiste em uma aplicação web de um e-commerce utilizando um pequeno banco de 
 ## Demonstração
 
 :computer: Teste aqui: [Lanchonete-online](https://lanchonete-mata-fome.vercel.app/)
-
- ![](lanchonete-online.gif)
+![img](lanchonete-online.png)
